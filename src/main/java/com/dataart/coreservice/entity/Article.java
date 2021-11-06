@@ -1,35 +1,41 @@
 package com.dataart.coreservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
 
 @Entity
-@Table
+@Table(name="articles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Article {
 
+    @Setter(AccessLevel.NONE)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
+    @Getter
+    @Setter
     @Column(name = "title")
     private String title;
 
+    @Getter
+    @Setter
     @Column(name = "body")
     private String body;
 
-    @Column(name = "topic")
-    private String topic;
-
+    @Getter
     @CreatedDate
     @Column(name = "createdDt")
-    private Date createdDt;
+    private final Instant createdDt = Instant.now();
+
+    public Article(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
 }

@@ -15,9 +15,6 @@ public class ArticleDto {
     @JsonProperty("body")
     private String body;
 
-    @JsonProperty("topic")
-    private String topic;
-
     @JsonProperty("createdDt")
-    private final Instant createdDt = Instant.now();
+    private Instant createdDt = Instant.now();
 }

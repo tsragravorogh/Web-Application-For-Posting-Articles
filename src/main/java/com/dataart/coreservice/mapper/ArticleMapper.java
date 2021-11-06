@@ -9,9 +9,8 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ArticleMapper {
 
-    @Mapping(source = "articleDto.title", target = "title")
-    @Mapping(source = "articleDto.body", target = "body")
-    @Mapping(source = "articleDto.topic", target = "topic")
-    @Mapping(source = "articleDto.createdDt", target = "createdDt")
-    Article toEntity(ArticleDto articleDto);
+    @Mapping(target = "title", source = "article.title")
+    @Mapping(target = "body", source = "article.body")
+    @Mapping(target = "createdDt", source = "article.createdDt")
+    ArticleDto toDto(Article article);
 }
