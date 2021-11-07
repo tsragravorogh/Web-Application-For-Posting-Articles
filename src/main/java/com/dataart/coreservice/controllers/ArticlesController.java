@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.zip.ZipFile;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class ArticlesController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ArticlesController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping("/articles")
+    @GetMapping("/getAllArticles")
     public ResponseEntity<?> getAllArticles() {
         return ResponseEntity
                 .status(HttpStatus.OK)
