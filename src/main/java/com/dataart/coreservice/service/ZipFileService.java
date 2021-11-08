@@ -110,7 +110,7 @@ public class ZipFileService {
                     body.append(line);
                 }
             }
-            return new Article(title.toString(), topic.toString(), body.toString());
+            return new Article(title.toString(), body.toString(), topic.toString());
 
         }catch (IOException e) {
             e.printStackTrace();

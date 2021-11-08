@@ -22,10 +22,20 @@ public class DemoApplication {
 	@Bean
 	CommandLineRunner run(ArticleRepository articleRepository) {
 		return args -> {
-			articleRepository.save(new Article("Title1", "body1", "Sport"));
-			articleRepository.save(new Article("Title2", "body2", "Politics"));
-			articleRepository.save(new Article("Title3", "body3", "Travel"));
-			articleRepository.save(new Article("Title4", "body4", "Finance"));
+			articleRepository.save(new Article("Sport - described as the most important of the unimportant things.",
+					"While it may seem a long way off or irrelevant right now, later this year we could be gearing up for a thrilling 12 months of action.\n" +
+							"\n" +
+							"After rescheduling prompted by the coronavirus pandemic, the postponed Euros,...",
+					"Sport"));
+			articleRepository.save(new Article("The Fight for Feminism in Modern Day China",
+					"Many political occurrences in modern day China have roots in the Maoist era. Physically, Mao’s presence looms over Beijing’s most prominent hallmark of political advocacy; ...",
+					"Politics"));
+			articleRepository.save(new Article("Travel 2021 Predictions",
+					"Let’s be honest: Who in 2019 could have predicted that a microscopic organism would come out of the blue and like a wrecking ball turn our world upside down? Yet, here we are, hoping that the next year will be the ray of sunshine at the end...\n",
+					"Travel"));
+			articleRepository.save(new Article("The Innovators 2021",
+					"This year’s innovators across cash management; trade, Islamic and corporate finance; and payments, demonstrated a renewed focus on speed to market, ease of use and the ability of customers to do more remotely using chatbots and mobile devices...",
+					"Finance"));
 		};
 	}
 
