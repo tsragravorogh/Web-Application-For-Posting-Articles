@@ -30,12 +30,18 @@ public class Article {
     private String body;
 
     @Getter
+    @Setter
+    @Column(name = "topic")
+    private String topic;
+
+    @Getter
     @CreatedDate
     @Column(name = "createdDt")
     private final Instant createdDt = Instant.now();
 
-    public Article(String title, String body) {
+    public Article(String title, String body, String topic) {
         this.title = title;
         this.body = body;
+        this.topic = topic;
     }
 }

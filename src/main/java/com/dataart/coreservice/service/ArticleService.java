@@ -5,6 +5,8 @@ import com.dataart.coreservice.exception.IncorrectZipFileException;
 import com.dataart.coreservice.mapper.ArticleMapper;
 import com.dataart.coreservice.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +19,8 @@ import java.util.zip.ZipFile;
 @Transactional
 public class ArticleService {
 
+    Logger log = LoggerFactory.getLogger(ArticleService.class);
+
     @Autowired
     private ArticleRepository articleRepository;
 
@@ -25,12 +29,7 @@ public class ArticleService {
 
     public Article addArticle(MultipartFile multipartFile) {
         Article article = zipFileService.getArticleFromMultipartFile(multipartFile);
+        log.trace("The article from .zip was created {}", article);
         return articleRepository.save(article);
     }
-
-    public Article addArticle(ZipFile file) {
-        Article article = zipFileService.getArticleFromZip(file);
-        return articleRepository.save(article);
-    }
-
 }

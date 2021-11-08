@@ -9,5 +9,8 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends CrudRepository<Article, Long> {
 
-    List<Article> findAll();
+    List<Article> findAllByOrderByCreatedDt();
+
+    List<Article> findAllByTopic(String topic);
+
 }

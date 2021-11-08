@@ -22,10 +22,10 @@ public class DemoApplication {
 	@Bean
 	CommandLineRunner run(ArticleRepository articleRepository) {
 		return args -> {
-			articleRepository.save(new Article("Topic1", "body"));
-			articleRepository.save(new Article("Topic2", "body2"));
-			articleRepository.save(new Article("Topic2", "body3"));
-			articleRepository.save(new Article("Topic2", "body4"));
+			articleRepository.save(new Article("Title1", "body1", "Sport"));
+			articleRepository.save(new Article("Title2", "body2", "Politics"));
+			articleRepository.save(new Article("Title3", "body3", "Travel"));
+			articleRepository.save(new Article("Title4", "body4", "Finance"));
 		};
 	}
 
