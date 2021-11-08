@@ -1,6 +1,5 @@
 package com.dataart.coreservice.service;
 
-import com.dataart.coreservice.controllers.ArticlesController;
 import com.dataart.coreservice.entity.Article;
 import com.dataart.coreservice.exception.IncorrectFileContentException;
 import com.dataart.coreservice.exception.IncorrectZipFileContentException;

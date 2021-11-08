@@ -1,8 +1,6 @@
 package com.dataart.coreservice.service;
 
 import com.dataart.coreservice.entity.Article;
-import com.dataart.coreservice.exception.IncorrectZipFileException;
-import com.dataart.coreservice.mapper.ArticleMapper;
 import com.dataart.coreservice.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -11,12 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.transaction.Transactional;
-import java.util.zip.ZipFile;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class ArticleService {
 
     Logger log = LoggerFactory.getLogger(ArticleService.class);
@@ -31,5 +27,15 @@ public class ArticleService {
         Article article = zipFileService.getArticleFromMultipartFile(multipartFile);
         log.trace("The article from .zip was created {}", article);
         return articleRepository.save(article);
+    }
+
+    public List<Article> getAllArticles() {
+        log.trace("All articles returned");
+        return articleRepository.findAllByOrderByCreatedDt();
+    }
+
+    public List<Article> getAllArticleByTopic(String topic) {
+        log.trace("All articles by topic returned. Topic: {}", topic);
+        return articleRepository.findAllByTopic(topic);
     }
 }

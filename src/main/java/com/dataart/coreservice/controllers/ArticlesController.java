@@ -18,9 +18,6 @@ public class ArticlesController {
     Logger log = LoggerFactory.getLogger(ArticlesController.class);
 
     @Autowired
-    private ArticleRepository articlesRepository;
-
-    @Autowired
     private ArticleService articleService;
 
     @GetMapping("/getAllArticles")
@@ -28,7 +25,7 @@ public class ArticlesController {
         log.info("The method 'getAllArticles' was called");
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(articlesRepository.findAllByOrderByCreatedDt());
+                .body(articleService.getAllArticles());
     }
 
     @PostMapping("/addArticle")
@@ -44,6 +41,6 @@ public class ArticlesController {
         log.info("The method 'getAllArticleByTopic' was called. Topic: {}", topic);
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(articlesRepository.findAllByTopic(topic));
+                .body(articleService.getAllArticleByTopic(topic));
     }
 }
