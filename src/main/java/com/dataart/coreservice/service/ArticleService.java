@@ -31,7 +31,7 @@ public class ArticleService {
 
     public List<Article> getAllArticles() {
         log.trace("All articles returned");
-        return articleRepository.findAllByOrderByCreatedDt();
+        return articleRepository.findAllByOrderByCreatedDtDesc();
     }
 
     public List<Article> getAllArticleByTopic(String topic) {

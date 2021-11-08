@@ -35,7 +35,7 @@ public class ArticlesControllerTest {
     public void verifyThatGetMethodGetAllArticlesWorksCorrectly() throws Exception {
         Article testArticle = new Article("The best game in the world", "It was Legendary","Sport");
         List<Article> articlesList = Collections.singletonList(testArticle);
-        given(articleRepository.findAllByOrderByCreatedDt()).willReturn(articlesList);
+        given(articleRepository.findAllByOrderByCreatedDtDesc()).willReturn(articlesList);
 
         mvc.perform(MockMvcRequestBuilders
                 .get("/api/getAllArticles")
@@ -49,7 +49,7 @@ public class ArticlesControllerTest {
         String forArticle = RandomStringUtils.random(10);
         Article testArticle = new Article(forArticle, forArticle, topic);
         List<Article> articlesList = Collections.singletonList(testArticle);
-        given(articleRepository.findAllByOrderByCreatedDt()).willReturn(articlesList);
+        given(articleRepository.findAllByOrderByCreatedDtDesc()).willReturn(articlesList);
 
         mvc.perform(MockMvcRequestBuilders
                 .get("/api/getAllArticles/{topic}", topic)
