@@ -36,6 +36,6 @@ public class ArticleService {
 
     public List<Article> getAllArticleByTopic(String topic) {
         log.trace("All articles by topic returned. Topic: {}", topic);
-        return articleRepository.findAllByTopic(topic);
+        return articleRepository.findAllByTopicOrderByCreatedDtDesc(topic);
     }
 }

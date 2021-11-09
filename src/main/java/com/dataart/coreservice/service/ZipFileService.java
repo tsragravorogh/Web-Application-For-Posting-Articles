@@ -25,7 +25,7 @@ public class ZipFileService {
 
     Logger log = LoggerFactory.getLogger(ZipFileService.class);
 
-    final private String fileBaseName = "src/main/resources/zip/";
+    final private String fileBaseName = "C:\\zip\\";
 
     public void isCorrect (ZipFile zipFile) {
         try{
@@ -66,52 +66,6 @@ public class ZipFileService {
         log.trace("The file has correct format");
         return true;
     }
-
-//    public Article getArticleFromMultipartFile(MultipartFile file){
-//        String fileName = file.getOriginalFilename();
-//        isZip(fileName);
-//        Path path = Paths.get(fileBaseName + fileName);
-//        try{
-//            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        try{
-//            ZipFile zipFile = new ZipFile(String.valueOf(path));
-//            Article article = getArticleFromZip(zipFile);
-//            zipFile.close();
-//            //File fileToDelete = new File(String.valueOf(path));
-//            //fileToDelete.delete();
-//            return article;
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-//
-//    public Article getArticleFromFile(MultipartFile file) {
-//        try {
-//            File f = new File(fileBaseName + "article.zip");
-//            ZipOutputStream out = new ZipOutputStream(new FileOutputStream(f));
-//            ZipEntry e = new ZipEntry("article.txt");
-//            out.putNextEntry(e);
-//            out.write(file.getBytes(), 0, file.getBytes().length);
-//            out.closeEntry();
-//            out.close();
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            ZipFile zipFile = new ZipFile(fileBaseName+"article.zip");
-//            Article article = getArticleFromZip(zipFile);
-//            zipFile.close();
-//            return article;
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
 
     public Article getArticleFromMultipartFile(MultipartFile file) {
 

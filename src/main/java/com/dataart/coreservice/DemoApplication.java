@@ -22,19 +22,39 @@ public class DemoApplication {
 	@Bean
 	CommandLineRunner run(ArticleRepository articleRepository) {
 		return args -> {
-			articleRepository.save(new Article("Sport - described as the most important of the unimportant things.",
-					"While it may seem a long way off or irrelevant right now, later this year we could be gearing up for a thrilling 12 months of action.\n" +
+			articleRepository.save(new Article("Return to play: Tips to prevent COVID-19 transmission in sport and recreation facilities",
+					"Since COVID-19 lockdowns began last year, the sport and recreation industry has been one of the hardest hit. And as we move towards a slow reopening, variants of concern (like the Delta variant) threaten the industry’s safe resumption. Despite vaccination efforts, some say herd immunity is unlikely, and we may have to learn to live with the virus.\n" +
 							"\n" +
-							"After rescheduling prompted by the coronavirus pandemic, the postponed Euros,...",
+							"In Canada, lockdowns have had negative impacts on levels of physical activity, sedentary behaviour and mental health. And unhealthy lifestyle trends are associated with severe complications from COVID-19 and hospital admissions.\n" +
+							"\n" +
+							"Sport and recreation facilities help support healthy lifestyles. Throughout the pandemic, however, they’ve become difficult to safely operate because of the elevated respiratory activity and the potential for airborne transmission of the virus. As a result, many have been forced to close or operate under strict guidelines.\n" +
+							"\n",
 					"Sport"));
-			articleRepository.save(new Article("The Fight for Feminism in Modern Day China",
-					"Many political occurrences in modern day China have roots in the Maoist era. Physically, Mao’s presence looms over Beijing’s most prominent hallmark of political advocacy; ...",
+			articleRepository.save(new Article("New Zealand legalises assisted dying for the terminally ill",
+					"New legislation supporting assisted dying has come into force in New Zealand, more than a year after almost two-thirds of New Zealanders voted in favour of the law in a referendum.\n" +
+							"\n" +
+							"The End of Life Choice Act will allow terminally ill patients to request doctors to end their lives.\n" +
+							"\n" +
+							"To be eligible, a person must have a terminal illness that is likely to end their life within six months or is in an \"advanced state of irreversible decline\". They must also be able to make an informed decision.\n" +
+							"\n" +
+							"Supporters believe the law will give New Zealanders who are \"suffering terribly at the end of their lives\" choice, compassion, and dignity.\n" +
+							"\n" +
+							"New Zealand's government has appointed three experts, including a medical ethicist, to monitor the legislation.",
 					"Politics"));
-			articleRepository.save(new Article("Travel 2021 Predictions",
-					"Let’s be honest: Who in 2019 could have predicted that a microscopic organism would come out of the blue and like a wrecking ball turn our world upside down? Yet, here we are, hoping that the next year will be the ray of sunshine at the end...\n",
+			articleRepository.save(new Article("The Best (and Worst) Places in the World to\n" +
+					"Get a Good Night's Sleep",
+					"Things are very different in Cali, Columbia, where only 33% of stress tweets talk about not getting enough sleep. That makes Cali the most restful city on the planet. The news will come as a surprise to anyone familiar with the Columbian metropolis. Also known as Salsa Town, Cali has a well-earned reputation as a party city!\n" +
+							"\n" +
+							"Despite being one of Southeast Asia's financial hubs, Manilla is the second-best city for getting a proper night's sleep. Less than 36% of tweeters living in the capital of the Philippines have trouble nodding off after a long day crunching numbers and securing business deals.\n" +
+							"\n" +
+							"Other surprising entrants into the top 10 best cities for sleep include Cairo and Johannesburg. The metropolitan area of Cairo has a population of over 20million people, while nearly 6million call Johannesburg home. Yet these megacities quieten down after dark, which is why more than 60% of stress tweets in both places never mention sleep issues",
 					"Travel"));
-			articleRepository.save(new Article("The Innovators 2021",
-					"This year’s innovators across cash management; trade, Islamic and corporate finance; and payments, demonstrated a renewed focus on speed to market, ease of use and the ability of customers to do more remotely using chatbots and mobile devices...",
+			articleRepository.save(new Article("Should I Invest in Individual Stocks?",
+					"So you want to invest? AWESOME!!  Maybe you have been reading a cool blog like mine or perhaps you had a friend tell you about this wonderful wealth-building tool! Regardless, it will not be long before you question if you should buy individual stocks. With the bull market we are currently riding, there are many people that would tell you that it is a good idea. But is it really?\n" +
+							"\n" +
+							"Often times when new investors come to my office, they want to invest small amounts of money into individual stocks. They are really excited about the market and understandably so. I had one guy come in and tell me that he invested $40,000 in an individual stock that actually turned into $110,000. That’s awesome!! Granted it took him 5 years to do it, but nonetheless, he did it.\n" +
+							"\n" +
+							"Here’s the problem. When I asked him what type of account he was using, he looked at me funny and said, “I don’t know, I’m using cash.” Now, I’m not going to get into all the ramifications of this particular strategy, but there are two things to learn from his actions.",
 					"Finance"));
 		};
 	}

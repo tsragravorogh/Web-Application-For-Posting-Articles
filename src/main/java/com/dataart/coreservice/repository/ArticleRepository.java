@@ -11,6 +11,6 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 
     List<Article> findAllByOrderByCreatedDtDesc();
 
-    List<Article> findAllByTopic(String topic);
+    List<Article> findAllByTopicOrderByCreatedDtDesc(String topic);
 
 }

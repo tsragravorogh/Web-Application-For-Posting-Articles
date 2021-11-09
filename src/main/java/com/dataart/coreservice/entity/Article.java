@@ -26,7 +26,7 @@ public class Article {
 
     @Getter
     @Setter
-    @Column(name = "body")
+    @Column(name = "body", length = 5000)
     private String body;
 
     @Getter
