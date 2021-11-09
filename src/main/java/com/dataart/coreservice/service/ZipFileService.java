@@ -18,6 +18,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 @Service
 public class ZipFileService {
@@ -66,17 +67,64 @@ public class ZipFileService {
         return true;
     }
 
-    public Article getArticleFromMultipartFile(MultipartFile file){
-        String fileName = file.getOriginalFilename();
-        isZip(fileName);
-        Path path = Paths.get(fileBaseName + fileName);
-        try{
-            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        }catch (IOException e) {
+//    public Article getArticleFromMultipartFile(MultipartFile file){
+//        String fileName = file.getOriginalFilename();
+//        isZip(fileName);
+//        Path path = Paths.get(fileBaseName + fileName);
+//        try{
+//            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        try{
+//            ZipFile zipFile = new ZipFile(String.valueOf(path));
+//            Article article = getArticleFromZip(zipFile);
+//            zipFile.close();
+//            //File fileToDelete = new File(String.valueOf(path));
+//            //fileToDelete.delete();
+//            return article;
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+//    }
+//
+//    public Article getArticleFromFile(MultipartFile file) {
+//        try {
+//            File f = new File(fileBaseName + "article.zip");
+//            ZipOutputStream out = new ZipOutputStream(new FileOutputStream(f));
+//            ZipEntry e = new ZipEntry("article.txt");
+//            out.putNextEntry(e);
+//            out.write(file.getBytes(), 0, file.getBytes().length);
+//            out.closeEntry();
+//            out.close();
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            ZipFile zipFile = new ZipFile(fileBaseName+"article.zip");
+//            Article article = getArticleFromZip(zipFile);
+//            zipFile.close();
+//            return article;
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
+    public Article getArticleFromMultipartFile(MultipartFile file) {
+
+        isZip(file.getOriginalFilename());
+        Path path = Paths.get(fileBaseName, file.getOriginalFilename());
+
+        try (OutputStream os = Files.newOutputStream(path)){
+            os.write(file.getBytes());
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        try{
-            ZipFile zipFile = new ZipFile(String.valueOf(path));
+        try {
+            ZipFile zipFile = new ZipFile(fileBaseName+"article.zip");
             Article article = getArticleFromZip(zipFile);
             zipFile.close();
             File fileToDelete = new File(String.valueOf(path));
@@ -85,7 +133,6 @@ public class ZipFileService {
         }catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
