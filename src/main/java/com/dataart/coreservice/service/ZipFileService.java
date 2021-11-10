@@ -6,6 +6,7 @@ import com.dataart.coreservice.exception.IncorrectZipFileContentException;
 import com.dataart.coreservice.exception.TypeFileException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +26,8 @@ public class ZipFileService {
 
     Logger log = LoggerFactory.getLogger(ZipFileService.class);
 
-    final private String fileBaseName = "C:\\zip\\";
+    @Value("${upload.path}")
+    private String fileBaseName;
 
     public void isCorrect (ZipFile zipFile) {
         try{
